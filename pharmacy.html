@@ -1,9 +1,19 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
-    <title>Pharmacy Colleges</title>
+<meta charset="UTF-8">
+<title>Pharmacy Colleges</title>
 </head>
+
 <body>
+
+<div style="text-align:center; margin:20px;">
+    <input type="text"
+           id="searchInput"
+           placeholder="Search Pharmacy College"
+           onkeyup="searchCollege()"
+           style="width:80%; max-width:500px; padding:12px; font-size:18px; border-radius:8px;">
+</div>
 
 <h1>Pharmacy Colleges</h1>
 
@@ -114,8 +124,23 @@
 <li><a href="https://share.google/LgRAemwGzTv3Sopnf" target="_blank">Vision College of Pharmacy & Research</a></li>
 <li><a href="https://share.google/yKlsm6nvLN8CKU0SA" target="_blank">Vishnu Institute of Pharmacy Education & Research</a></li>
 </ul>
+   
 
-<a href="index.html">⬅ Back to Home</a>
+<script>
+function searchCollege() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let colleges = document.querySelectorAll("#collegeList li");
+
+    colleges.forEach(function(college) {
+        if (college.textContent.toLowerCase().includes(input)) {
+            college.style.display = "";
+        } else {
+            college.style.display = "none";
+        }
+    });
+}
+</script>
 
 </body>
 </html>
+
