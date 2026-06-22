@@ -1,5 +1,18 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Colleges</title></head><body><h1>Colleges</h1><ul>
+<html><head><meta charset="UTF-8"><title>Colleges</title>
+  <center>
+<input type="text"
+id="searchInput"
+placeholder="Search COUNSELLING COLLEGES"
+onkeyup="searchCollege()"
+style="width:500px; padding:12px; font-size:18px;">
+</center>
+
+<br>
+</head>
+  <body>
+    <h1>Colleges</h1>
+    <ul>
 <li><a href="https://maps.app.goo.gl/n5JnGwdDhp6aM3Mk7" target="_blank">S  Government Polytechnic</a></li>
 <li><a href="https://maps.app.goo.gl/45SBkKZttFa3tRsCA" target="_blank">Government Polytechnic, Bellampally</a></li>
 <li><a href="https://maps.app.goo.gl/yVW6qgdKGRsVpDvM6" target="_blank">Government Polytechnic, Nirmal</a></li>
@@ -36,5 +49,23 @@
 <li><a href="https://maps.app.goo.gl/MVFE6kxTUQZLTp9PA" target="_blank">University Arts & Science College, Subedari</a></li>
 <li><a href="https://maps.app.goo.gl/7v5rQcJm31mYgvmR6" target="_blank">Directorate of Admissions, Kakatiya University Campus, Warangal</a></li>
 <li><a href="https://maps.app.goo.gl/imieo7sz6fWr7jtt6" target="_blank">Government Polytechnic, Warangal</a></li>
-</ul></body></html>
+</ul>
+    <script>
+function searchCollege() {
+  let input = document.getElementById("searchInput").value.toUpperCase();
+  let li = document.getElementsByTagName("li");
+
+  for (let i = 0; i < li.length; i++) {
+    let a = li[i].getElementsByTagName("a")[0];
+    let txt = a.textContent || a.innerText;
+
+    if (txt.toUpperCase().indexOf(input) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+  </body></html>
 
