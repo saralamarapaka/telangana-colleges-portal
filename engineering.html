@@ -2,6 +2,11 @@
 <html>
 <head>
 <title>Engineering Colleges</title>
+  <input type="text" id="searchInput"
+placeholder="Search Engineering College"
+onkeyup="searchCollege()">
+
+<br><br>
 </head>
 <body>
 <h1>Engineering Colleges</h1>
@@ -157,6 +162,23 @@
   <li><a href="https://maps.app.goo.gl/ntp86t8DBBb9hHAt9" target="_blank">WARANGAL INSTITUTE OF TECHNOLOGY AND SCIENCE</a></li>
 
 </ul>
+  <script>
+function searchCollege() {
+  let input = document.getElementById("searchInput").value.toUpperCase();
+  let li = document.getElementsByTagName("li");
+
+  for (let i = 0; i < li.length; i++) {
+    let a = li[i].getElementsByTagName("a")[0];
+    let txt = a.textContent || a.innerText;
+
+    if (txt.toUpperCase().indexOf(input) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
 </body>
 </html>
  
